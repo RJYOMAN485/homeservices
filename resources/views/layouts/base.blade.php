@@ -51,6 +51,7 @@
             </div>
         </div>
         <header id="header" class="header-v3">
+            {{-- {{ Auth::user() }} --}}
             <nav class="flat-mega-menu">
                 <label for="mobile-button"> <i class="fa fa-bars"></i></label>
                 <input id="mobile-button" type="checkbox">
@@ -129,25 +130,25 @@
                             @if (Auth::user()->utype === 'ADM')
                                 <li class="login-form"> <a href="i#" title="Register">My Account (Admin)</a>
                                     <ul class="drop-down one-column hover-fade">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout.form').submit()">Logout</li>
+                                        <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout-form').submit()">Logout</li>
                                        
                                     </ul>
                                 </li>
 
-                            @elseif (Auth::user()->uytpe==='SVP')
+                            @elseif (Auth::user()->utype ==='SVP')
                             <li class="login-form"> <a href="i#" title="Register">My Account (S Provider)</a>
                                 <ul class="drop-down one-column hover-fade">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout.form').submit()">Logout</li>
+                                    <li><a href="{{ route('sprovider.dashboard') }}">Dashboard</a></li>
+                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout-form').submit()">Logout</li>
                                    
                                 </ul>
                             </li>
                             @else
                             <li class="login-form"> <a href="i#" title="Register">My Account (Customer)</a>
                                 <ul class="drop-down one-column hover-fade">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout.form').submit()">Logout</li>
+                                    <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
+                                    <li><a  onclick="event.preventDefault(); console.log('form triggered'); document.getElementById('logout-form').submit()">Logout</li>
                                    
                                 </ul>
                             </li>
